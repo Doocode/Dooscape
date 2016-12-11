@@ -1,0 +1,16 @@
+*.Debug
+*.Release
+*.log
+*.exe
+*.obj
+*.dll
+moc_*
+build/*/*/Makefile
+build/*/*/*/*.res
+build/*/*/*/qrc_res.cpp
+build/windows/release/release/bearer
+build/windows/release/release/iconengines
+build/windows/release/release/imageformats
+build/windows/release/release/platforms
+build/windows/release/release/resources
+build/windows/release/release/translations

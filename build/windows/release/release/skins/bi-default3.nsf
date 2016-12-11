@@ -1,0 +1,1266 @@
+QScrollArea,
+QFrame
+{
+	background: transparent;
+	border: none;
+}
+
+QMainWindow
+{
+	background: @color;
+}
+
+QLineEdit
+{
+	padding: 4px 6px;
+	font-family: arial;
+	color: black;
+	background: transparent;
+	border: 1px solid rgb(50,50,50);
+	font-size: 12px;
+}
+
+/* VERTICAL */
+QScrollBar:vertical
+{
+	border: none;
+	background: transparent;
+	width: 30px;
+	margin: 0px;
+}
+
+QScrollBar::handle:vertical
+{
+	background: @color;
+	min-height: 50px;
+	border-radius: 10px;
+	border: none;
+	margin: 5px;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical
+{
+	border: none;
+	background: transparent;
+	height: 0px;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical
+{
+	border-top: none;
+	subcontrol-position: bottom;
+}
+
+QScrollBar::sub-line:vertical
+{
+	border-bottom: none;
+	subcontrol-position: top;
+}
+
+QScrollBar::up-arrow:vertical,
+QScrollBar::down-arrow:vertical
+{
+	border: none;
+	width: 0px;
+	height: 0px;
+	background: transparent;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical
+{
+	background: none;
+}
+
+/* HORIZONTAL */
+QScrollBar:horizontal
+{
+	border: 1px solid silver;
+	background: rgb(235,235,235);
+	height: 25px;
+	margin: 0px 25px 0 25px;
+}
+
+QScrollBar::handle:horizontal
+{
+	background: @color;
+	min-width: 50px;
+	border-radius: 5px;
+	border: 2px solid rgb(235,235,235);
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal
+{
+	subcontrol-origin: margin;
+	width: 25px;
+	border: 1px solid silver;
+	background: rgb(235,235,235);
+}
+
+QScrollBar::add-line:horizontal:hover,
+QScrollBar::sub-line:horizontal:hover
+{
+	background: silver;
+}
+
+QScrollBar::add-line:horizontal
+{
+	subcontrol-position: right;
+	border-left: none;
+}
+
+QScrollBar::sub-line:horizontal
+{
+	subcontrol-position: left;
+	border-right: none;
+}
+
+QScrollBar:left-arrow:horizontal,
+QScrollBar::right-arrow:horizontal
+{
+	border: none;
+	width: 8px;
+	height: 8px;
+	background: rgba(0,0,0,.5);
+	border-radius: 4px;
+}
+
+QScrollBar::up-arrow:horizontal:hover,
+QScrollBar::down-arrow:horizontal:hover
+{
+	background: black;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal
+{
+	background: none;
+}
+
+/* ToolBar */
+
+QToolBar
+{
+	border: none;
+	background: white;
+	padding: 0px;
+	spacing: 5px;
+}
+
+QToolBar::separator
+{
+	background: rgba(0,0,0,.3);
+	width: 1px;
+
+	width: 6px;
+	margin: 8px 0px;
+	border-radius: 3px;
+}
+
+QToolBar QToolButton,
+QToolBar QPushButton
+{
+	background: transparent;
+	border: none;
+	color: black;
+	padding: 7px 10px;
+	font-family: arial;
+	font-size: 12px;
+}
+
+QToolBar QPushButton
+{
+	padding: 10px 3px;
+	padding-top: 7px;
+	padding-right: 4px;
+}
+
+QToolBar QToolButton:hover,
+QToolBar QPushButton:hover
+{
+	background: rgba(0,0,0,.3);
+}
+
+QToolBar QToolButton:pressed,
+QToolBar QPushButton:pressed,
+QToolBar QToolButton:checked,
+QToolBar QPushButton:checked
+{
+	background: @color;
+}
+
+QToolBar QPushButton::menu-indicator
+{
+	image: url(none.png);
+}
+
+#AddressBar
+{
+	border: none;
+	background: rgba(0,0,0,.0);
+}
+
+#AddressBar:hover
+{
+	background: rgba(0,0,0,.15);
+}
+
+QToolBar #AddressBar::chunk
+{
+	background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 transparent, stop: .4 @color, stop: .5 white, stop: .6 @color, stop: 1 transparent);
+}
+
+QToolBar #AddressBar #Icon
+{
+	border: none;
+	background: transparent;
+	padding: 10px 10px;
+	margin: 0px;
+}
+
+QToolBar #AddressBar QToolButton,
+QToolBar #AddressBar QToolButton:hover
+{
+	border: none;
+	background: transparent;
+	color: black;
+	font-size: 12px;
+	margin: 0px;
+	font-family: arial;
+	padding: 0px;
+}
+
+QToolBar #AddressBar QLabel
+{
+	border: none;
+	background: rgba(0,0,0,.3);
+	padding: 0px 10px;
+	color: white;
+	font-size: 14px;
+	font-family: arial;
+}
+
+QMenu
+{
+	background: white;
+	padding: 7px 0px;
+	border: 1px solid silver;
+	font-family: arial;
+}
+
+QMenu::item
+{
+	border: none;
+	padding: 7px 35px;
+	color: black;
+}
+
+QMenu::item:selected
+{
+	background: @color;
+	color: white;
+}
+
+QMenu::icon
+{
+	margin-left: 15px;
+}
+
+QMenu::separator
+{
+	margin: 5px 0px;
+	border: none;
+	height: 1px;
+	background: rgba(0,0,0,.3);
+
+	height: 6px;
+	margin: 7px;
+	border-radius: 3px;
+}
+
+QCheckBox,
+QRadioButton
+{
+	spacing: 7px;
+	color: black;
+	font-size: 12px;
+	font-family: arial, segoe ui;
+}
+
+QCheckBox:disabled,
+QRadioButton:disabled
+{
+	color: rgba(0,0,0,.3);
+}
+
+QCheckBox::indicator,
+QRadioButton::indicator
+{
+	width: 16px;
+	height: 16px;
+	border: 1px solid black;
+	background: transparent;
+	padding: 1px;
+	border-radius: 2px;
+}
+
+QCheckBox::indicator:disabled,
+QRadioButton::indicator:disabled
+{
+	border-color: rgba(0,0,0,.3);
+}
+
+QRadioButton::indicator
+{
+	border-radius: 9px;
+	width: 11px;
+	height: 11px;
+	padding: 3px;
+}
+
+QCheckBox::indicator:hover,
+QRadioButton::indicator:hover
+{
+	background: rgba(0,0,0,.2);
+}
+
+QCheckBox::indicator:checked
+{
+	image: url(:/img/black/check.png);
+}
+
+QRadioButton::indicator:checked
+{
+	image: url(:/img/black/round.png);
+}
+
+#ConfigWindow
+{
+	background: transparent;
+}
+
+#ConfigWindow #TabList
+{
+	background: rgba(0,0,0,.3);
+}
+
+#ConfigWindow #TabList QLabel
+{
+	padding: 30px;
+	padding-bottom: 15px;
+	font-size: 25px;
+	font-family: arial;
+	color: white;
+}
+
+#ConfigWindow #TabList QToolButton
+{
+	border: none;
+	background: transparent;
+	color: white;
+	font-family: arial;
+	font-size: 12px;
+	padding: 8px 27px;
+}
+
+#ConfigWindow #TabList QToolButton:hover
+{
+	background: rgba(0,0,0,.3);
+}
+
+#ConfigWindow #TabList QToolButton:checked
+{
+	background: rgba(0,0,0,.5);
+	font-weight: bold;
+}
+
+#ConfigWindow #Panel
+{
+	background: white;
+}
+
+#ConfigWindow #Panel QLabel
+{
+	font-size: 12px;
+	font-family: arial;
+	color: black;
+}
+
+#ConfigWindow #Panel QToolButton,
+#ConfigWindow #Panel QPushButton
+{
+	border: none;
+	background: rgba(0,0,0,.3);
+	padding: 7px 8px;
+	margin: 0px;
+	color: black;
+	font-size: 12px;
+	border-radius: 3px;
+	font-family: arial, segoe ui;
+}
+
+#ConfigWindow #Panel QToolButton:hover,
+#ConfigWindow #Panel QPushButton:hover
+{
+	background: rgba(0,0,0,.5);
+}
+
+#ConfigWindow #Panel QToolButton:pressed,
+#ConfigWindow #Panel QPushButton:pressed
+{
+	background: @color;
+}
+
+#ConfigWindow #Panel #Title
+{
+	padding: 30px;
+	padding-bottom: 15px;
+	font-size: 25px;
+}
+
+#ConfigWindow #Panel #PreviewButton
+{
+	background-color: rgba(0,0,0,.1);
+	border: none;
+}
+
+#ConfigWindow #Panel #PreviewButton QPushButton
+{
+	border-radius: 0px;
+	border: none;
+	background: none;
+}
+
+#ConfigWindow #Panel #PreviewButton QPushButton:hover
+{
+	background: rgba(0,0,0,.3);
+	border: none;
+}
+
+#ConfigWindow #Panel #PreviewButton QPushButton:pressed
+{
+	background: rgba(0,0,0,.5);
+	border: none;
+}
+
+#ConfigWindow #Panel #ToolbarIcons
+{
+	border: 2px solid transparent;
+	background: transparent;
+	padding: 7px;
+	border-radius: 0px;
+}
+
+#ConfigWindow #Panel #ToolbarIcons:hover
+{
+	border: 2px solid rgb(185,185,185);
+	background: transparent;
+}
+
+#ConfigWindow #Panel #ToolbarIcons:checked
+{
+	background: rgb(215,215,215);
+}
+
+#ConfigWindow #Panel QSlider::groove
+{
+	padding: 0px;
+	margin: 16px 0px;
+	border: none;
+	background: black;
+}
+
+#ConfigWindow #Panel QSlider::handle
+{
+	padding: 0px;
+	margin: -16px 0px;
+	background: @color;
+	border: 4px solid rgb(242,242,242);
+	border-radius: 17px;
+	width: 27px;
+}
+
+#ConfigWindow #Panel #IconSizeLabel
+{
+	font-size: 25px;
+	margin: 10px 0px;
+}
+
+#ConfigWindow #Panel #InfoPass
+{
+	background: rgba(0,0,0,0);
+	padding: 0px;
+	border: none;
+	color: grey;
+}
+
+#ConfigWindow #Panel #HideBlock
+{
+	border: none;
+	margin-bottom: 15px;
+}
+
+#ConfigWindow #Panel #HideBlock #BtnTitle
+{
+	font-family: arial;
+	margin: 0px;
+	background: transparent;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 0px;
+	padding: 5px 0px;
+	border: none;
+	border-bottom: 3px solid rgb(200,200,200);
+}
+
+#ConfigWindow #Panel #HideBlock #Block
+{
+	background: rgba(0,0,0,.05);
+}
+
+QSplitter::handle
+{
+	background: white;
+}
+
+FieldEditor
+{
+	background: @color;
+}
+
+FieldEditor QToolBar
+{
+	background: rgb(235,235,235);
+	spacing: 0px;
+}
+
+FieldEditor QToolBar QPushButton
+{
+	padding: 10px 11px;
+}
+
+FieldEditor QToolBar QPushButton::menu-indicator
+{
+	image: url(none.png);
+	width: 0px;
+	height: 0px;
+}
+
+FieldEditor QToolBar QLineEdit
+{
+	padding: 9px 5px;
+	font-size: 16px;
+	border: none;
+	background: transparent;
+}
+
+FieldEditor #EditBar
+{
+	background: transparent;
+	padding: 10px;
+	spacing: 10px;
+}
+
+FieldEditor #EditBar #LittleSpace
+{
+	border: none;
+	width: 0px;
+	height: 0px;
+	padding: 0px;
+}
+
+FieldEditor QToolButton
+{
+	background: rgba(0,0,0,0);
+	border: 1px solid rgba(0,0,0,0);
+	border-radius: 4px;
+
+	padding: 5px 0px;
+	border: 2px solid rgba(0,0,0,0);
+	border-radius: 0px;
+}
+
+FieldEditor #EditBar QToolButton:hover
+{
+	border-bottom-color: rgba(0,0,0,1);
+	background: transparent;
+}
+
+FieldEditor #EditBar::separator
+{
+	margin: 0px;
+	background: rgba(0,0,0,.3);
+}
+
+FieldEditor QScrollArea QLabel
+{
+	color: white;
+	padding: 45px;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-family: arial;
+	padding-top: 35px;
+	padding-bottom: 5px;
+}
+
+FieldEditor QScrollArea QToolButton
+{
+	padding: 9px 45px;
+	font-size: 12px;
+	font-family: arial;
+	background: transparent;
+	border: none;
+	border-radius: 0px;
+	color: black;
+}
+
+FieldEditor QScrollArea QToolButton:hover
+{
+	background: rgba(255,255,255,.2);
+}
+
+FieldEditor QScrollArea #HideBlock #BtnTitle
+{
+	padding-left: 45px;
+	background: rgba(255,255,255,.05);
+	color: white;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+FieldEditor QScrollArea #HideBlock QFrame
+{
+	border-left: 1px solid white;
+	background: rgba(255,255,255,.09);
+	margin-left: 53px;
+}
+
+FieldEditor QScrollArea #HideBlock QFrame QToolButton
+{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+FieldEditor QScrollBar:vertical
+{
+	border: 4px solid transparent;
+	background: transparent;
+	width: 30px;
+	margin: 0px;
+}
+
+FieldEditor QScrollBar::handle:vertical
+{
+	background: rgba(255,255,255,.5);
+	min-height: 50px;
+	border-radius: 11px;
+	border: 2px solid transparent;
+}
+
+FieldEditor QScrollBar::add-line:vertical,
+FieldEditor QScrollBar::sub-line:vertical
+{
+	subcontrol-origin: margin;
+	width: 0px;
+	border: none;
+	background: transparent;
+}
+
+FieldEditor QScrollBar::left-arrow:vertical,
+FieldEditor QScrollBar::right-arrow:vertical
+{
+	border: none;
+	width: 0px;
+	height: 0px;
+	background: transparent;
+}
+
+#TranslucidArea
+{
+	border: none;
+	background: rgba(0,0,0,.3);
+}
+
+SkinManager QListView
+{
+	padding-top: 25px;
+	background: rgba(0,0,0,.3);
+}
+
+SkinManager QListView::item
+{
+	color: white;
+	font-family: arial;
+	font-size: 16px;
+	padding: 5px 30px;
+	padding-bottom: 7px;
+	background: rgba(0,0,0,0);
+}
+
+SkinManager QListView::item:hover
+{
+	background: rgba(255,255,255,.3);
+}
+
+SkinManager QListView::item:selected
+{
+	background: rgba(255,255,255,.2);
+}
+
+SkinManager QPlainTextEdit
+{
+	background: white;
+	color: black;
+	font-family: courier new;
+	font-size: 14px;
+}
+
+LockScreen #Screen
+{
+	background: transparent;
+}
+
+LockScreen #Screen #Info
+{
+	color: white;
+	font-size: 14px;
+	background: rgba(0,0,0,.2);
+	margin: 25px 0px;
+	padding: 10px 20px;
+	border-left: 3px solid white;
+	border-right: 3px solid white;
+}
+
+LockScreen #SliderWidget
+{
+	background: white;
+	border-radius: 5px;
+}
+
+LockScreen #SliderWidget #BtnMenu,
+LockScreen #SliderWidget #BtnUnlock
+{
+	border: none;
+	background: transparent;
+	padding: 15px 25px;
+	border-radius: 4px;
+}
+
+LockScreen #SliderWidget #BtnMenu:hover,
+LockScreen #SliderWidget #BtnUnlock:hover
+{
+	background: @color;
+}
+
+LockScreen #SliderWidget QSlider::groove
+{
+	border: none;
+	height: 2px;
+	background: black;
+	margin: 25px 0px;
+}
+
+LockScreen #SliderWidget QSlider::handle
+{
+	background: @color;
+	border: 5px solid white;
+	width: 32px;
+	margin: -20px 0px;
+	border-radius: 20px;
+}
+
+LockScreen #FormWidget
+{
+	background: @color;
+}
+
+LockScreen #FormWidget QLabel
+{
+	font-size: 20px;
+	margin-top: 25px;
+	color: black;
+}
+
+LockScreen #Photo
+{
+	margin: 0px;
+}
+
+LockScreen #FormWidget QLineEdit
+{
+	border: none;
+	background: white;
+	padding: 10px 15px;
+	width: 500px;
+	color: black;
+	font-size: 16px;
+	border-radius: 4px;
+}
+
+LockScreen #FormWidget QPushButton
+{
+	border: none;
+	background: transparent;
+	padding: 20px;
+	border-radius: 4px;
+}
+
+LockScreen #FormWidget QPushButton:hover
+{
+	background: rgba(0,0,0,.5);
+}
+
+LockScreen #FormWidget QPushButton:pressed
+{
+	border: 2px solid black;
+	background: transparent;
+	border-radius: 5px;
+}
+
+LockScreen #SliderWidget QPushButton::menu-indicator,
+LockScreen #FormWidget QPushButton::menu-indicator
+{
+	image: url(none.png);
+	width: 0px;
+	height: 0px;
+}
+
+#PanelView
+{
+	background: @color;
+}
+
+#PanelView #Title
+{
+	padding: 15px 17px;
+	font-size: 18px;
+	font-family: arial;
+	margin: 0px;
+	color: black;
+}
+
+#PanelView #ActionsBar
+{
+	background: transparent;
+}
+
+#PanelView #ActionsBar QPushButton
+{
+	padding: 0px 9px;
+	padding-left: 10px;
+}
+
+#PanelView #ActionsBar QToolButton
+{
+	padding: 12px 10px;
+	padding-left: 11px;
+}
+
+#PanelView #ActionsBar QPushButton:hover,
+#PanelView #ActionsBar QToolButton:hover
+{
+	background: rgba(0,0,0,.2);
+}
+
+#PanelView #ActionsBar QPushButton:checked,
+#PanelView #ActionsBar QToolButton:checked
+{
+	background: rgba(0,0,0,.4);
+}
+
+#PanelView #ActionsBar QPushButton::menu-indicator
+{
+	image: url(none.png);
+	width: 0px;
+	height: 0px;
+}
+
+#PanelView QLineEdit
+{
+	border: none;
+	padding: 12px 18px;
+	padding-bottom: 14px;
+	font-size: 16px;
+	background: transparent;
+	color: black;
+	border-bottom: 2px solid black;
+}
+
+#PanelView #Counter
+{
+	padding: 10px 18px;
+	font-size: 12px;
+	font-family: arial;
+	margin: 0px;
+	font-weight: bold;
+	color: black;
+}
+
+#PanelView #ListMenu #Items
+{
+	border: none;
+	background: transparent;
+	spacing: 0px;
+}
+
+#PanelView #ListMenu #Items QToolButton
+{
+	border: none;
+	background: transparent;
+	padding: 12px 14px;
+	font-size: 12px;
+	color: black;
+	width: 169%;
+}
+
+#PanelView #ListMenu #Items QToolButton:hover
+{
+	background: rgba(255,255,255,.3);
+}
+
+#PanelView #ListMenu #Items QToolButton:checked
+{
+	background: white;
+}
+
+#PanelView #ListMenu #Items QToolButton:disabled
+{
+	color: rgba(0,0,0,.5);
+}
+
+#PanelView #ListMenu #QuickBar
+{
+	background: transparent;
+	spacing: 1px;
+}
+
+#PanelView #ListMenu #QuickBar QToolButton
+{
+	padding: 10px 8px;
+	margin-top: 2px;;
+}
+
+#PanelView #ListMenu #QuickBar QToolButton:hover
+{
+	background: rgba(0,0,0,.5);
+}
+
+#PanelView #ListMenu #QuickBar QToolButton:pressed
+{
+	background: @color;
+}
+
+#PanelView #MainMenu,
+#PanelView #TabBar,
+#PanelView #ReadList,
+#PanelView #Bookmarks,
+#PanelView #History,
+#PanelView #Downloads,
+#PanelView #About
+{
+	background: rgba(255,255,255,1);
+}
+
+#PanelView #ReadList #Item,
+#PanelView #Bookmarks #Item
+{
+	background: transparent;
+}
+
+#PanelView #ReadList #Item:hover,
+#PanelView #Bookmarks #Item:hover,
+#PanelView #History #List QToolButton:hover,
+#PanelView #History #List #Current:hover
+{
+	background: rgba(0,0,0,.2);
+}
+
+#PanelView #ReadList #Item QToolButton,
+#PanelView #ReadList #Item QPushButton,
+#PanelView #Bookmarks #Item QToolButton,
+#PanelView #Bookmarks #Item QPushButton,
+#PanelView #History #List QToolButton
+{
+	font-size: 14px;
+	font-family: arial;
+	border: none;
+	background: transparent;
+	color: black;
+}
+
+#PanelView #ReadList #Item #Icon
+{
+	padding: 0px;
+	padding-left: 16px;
+	padding-bottom: 20px;
+}
+
+#PanelView #Bookmarks #Item #Icon,
+#PanelView #History #List QToolButton
+{
+	padding: 0px;
+	padding-left: 16px;
+}
+
+#PanelView #ReadList #Item #Title
+{
+	padding: 0px;
+	padding-top: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	border: none;
+	background: transparent;
+}
+
+#PanelView #Bookmarks #Item #Title
+{
+	padding: 0px;
+	font-size: 12px;
+	border: none;
+	background: transparent;
+}
+
+#PanelView #History #List QToolButton
+{
+	font-size: 12px;
+	border: none;
+	background: transparent;
+}
+
+#PanelView #History #List #Current
+{
+	font-size: 14px;
+	font-weight: bold;
+	border: none;
+	background: rgba(0,0,0,.05);
+}
+
+#PanelView #ReadList #Item #Url
+{
+	padding: 0px;
+	padding-bottom: 10px;
+	font-size: 12px;
+}
+
+#PanelView #ReadList #Item #Menu,
+#PanelView #Bookmarks #Item #Menu
+{
+	background: transparent;
+}
+
+#PanelView #ReadList #Item #Menu:hover,
+#PanelView #Bookmarks #Item #Menu:hover
+{
+	background: rgba(0,0,0,.1);
+}
+
+#PanelView #ReadList #Item #Menu::menu-indicator,
+#PanelView #Bookmarks #Item #Menu::menu-indicator
+{
+	image: url(none.png);
+}
+
+#PanelView #ReadList #Item #EditTitle,
+#PanelView #ReadList #Item #EditUrl
+{
+	padding: 0px 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	border: 1px solid rgba(0,0,0,.2);
+	border-top: none;
+	background: rgba(0,0,0,.2);
+}
+
+#PanelView #ReadList #Item #EditTitle
+{
+	padding: 0px 10px;
+	padding-top: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	border: 1px solid rgba(0,0,0,.2);
+	border-bottom: none;
+}
+
+#PanelView QDialog
+{
+	background: @color;
+}
+
+#PanelView #MainMenu #Group
+{
+	background: transparent;
+}
+
+#PanelView #MainMenu QScrollArea HideBlock
+{
+	border: none;
+	background: tranparent;
+	margin: 0px 5px;
+}
+
+#PanelView #MainMenu QScrollArea HideBlock #BtnTitle
+{
+	border: none;
+	background: rgba(0,0,0,0);
+	font-size: 14px;
+	font-weight: bold;
+	font-family: arial;
+	text-transform: uppercase;
+	color: black;
+	border: none;
+	padding: 13px 7px;
+}
+
+#PanelView #MainMenu QScrollArea HideBlock #BtnTitle:hover
+{
+	color: @color;
+	background-color: white;
+}
+
+#PanelView #MainMenu #Group QFrame
+{
+	margin-bottom: 15px;
+}
+
+#PanelView #MainMenu #Group QToolBar
+{
+	border: none;
+	background: rgba(0,0,0,.1);
+	spacing: 0px;
+}
+
+#PanelView #MainMenu QScrollArea HideBlock QToolBar::separator
+{
+	background: rgba(0,0,0,.3);
+	height: 6px;
+
+	margin: 10px 16px;
+	border-radius: 3px;
+}
+
+#PanelView #MainMenu QScrollArea HideBlock QToolButton
+{
+	width: 240%;
+	padding: 8px 11px;
+}
+
+#PanelView #MainMenu QScrollArea HideBlock QToolButton:hover
+{
+	background: rgba(0,0,0,.15);
+}
+
+#PanelView #MainMenu QScrollArea HideBlock QToolButton:disabled
+{
+	color: rgba(0,0,0,.3);
+}
+
+TabBar #CurrentTab,
+TabBar #Tab
+{
+	border: 1px solid rgb(155,155,155);
+	background: rgb(235,235,235);
+}
+
+TabBar #Tab:hover
+{
+	border: 1px solid black;
+}
+
+TabBar #CurrentTab
+{
+	border: 3px solid @color;
+}
+
+TabBar #CurrentTab:hover
+{
+	border: 3px solid black;
+}
+
+TabBar #CurrentTab QToolButton,
+TabBar #Tab QToolButton
+{
+	background: transparent;
+	border: none;
+}
+
+TabBar #CurrentTab #Icon,
+TabBar #Tab #Icon
+{
+	padding-left: 10px;
+}
+
+TabBar #CurrentTab #Close,
+TabBar #Tab #Close
+{
+	padding: 0px 10px;
+}
+
+TabBar #CurrentTab #Close:hover,
+TabBar #Tab #Close:hover
+{
+	background: rgba(0,0,0,.3);
+}
+
+TabBar #Tab #TitleBar
+{
+	background: rgb(235,235,235);
+}
+
+TabBar #CurrentTab #TitleBar
+{
+	background: @color;
+}
+
+TabBar #Tab #TitleBar #Title,
+TabBar #CurrentTab #TitleBar #Title
+{
+	font-size: 12px;
+	font-family: arial;
+	color: black;
+	padding: 0px;
+}
+
+#PanelView #About #Logo
+{
+	background: transparent;
+	border: none;
+}
+
+#PanelView #About #Text
+{
+	padding: 10px 18px;
+	font-size: 12px;
+	font-family: arial;
+	margin: 0px;
+	color: black;
+}
+
+#PanelView #About QToolButton
+{
+	border: 2px solid transparent;
+	background: rgba(0,0,0,.2);
+	padding: 8px 12px;
+	padding-right: 0px;
+	font-size: 12px;
+	color: black;
+	margin: 0px 20px;
+	border-radius: 4px;
+}
+
+#PanelView #About QToolButton:hover
+{
+	background: @color;
+	border: 2px solid @color;
+	color: white;
+}
+
+#PanelView #About QToolButton:pressed
+{
+	background: transparent;
+	border: 2px solid @color;
+	color: black;
+}
