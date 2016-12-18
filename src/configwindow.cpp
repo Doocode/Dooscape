@@ -867,6 +867,14 @@ void ConfigWindow::choosePassword()
 
 QString ConfigWindow::hashPassword(QString password)
 {
+    int i = 10;
+    while(i>0)
+    {
+        i--;
+        password = "vfzeuki78vbDFg6vzdg6hbh" + password + "QIDlivgJKys65fhb6oRFJytcdgj";
+        password = QCryptographicHash::hash(password.toUtf8(),QCryptographicHash::Sha1).toHex();
+    }
+
     return password;
 }
 
