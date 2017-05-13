@@ -1,31 +1,13 @@
-#include "mainwindow.h"
-#include <QApplication>
+#include "application.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    Q_INIT_RESOURCE(res); // On s'assure que les fichiers QRC se chargent correctement
 
-    QPixmap pixmap(":/img/splash.png");
-    QSplashScreen splash(pixmap);
-    splash.show();
-
+    // On lance l'application
+    Application a(argc, argv);
     a.processEvents();
-
-    a.setApplicationName("Dooscape");
-    a.setApplicationVersion("2.0i");
-    a.setOrganizationName("Doocode");
-    a.setOrganizationDomain("http://doo.zz.vc/");
-
-    QString locale = QLocale::system().name().section('_', 0, 0);
-    QTranslator translator;
-    translator.load(QCoreApplication::applicationDirPath() + QDir::separator() + QString("dooscape_") + locale);
-    QCoreApplication::installTranslator(&translator);
-
-    MainWindow w;
-    w.showMaximized();
-
-
-    splash.finish(&w);
+    a.newMainWindow();
 
     return a.exec();
 }

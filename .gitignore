@@ -17,3 +17,4 @@ release/translations
 *.stash
 Makefile
 src/Dooscape.pro.user
+*.qm

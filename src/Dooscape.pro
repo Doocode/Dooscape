@@ -21,7 +21,7 @@ macx {
     ICON = icon.icns
 }
 
-TRANSLATIONS = dooscape_fr.ts\
+TRANSLATIONS = lang_fr.ts\
 
 SOURCES += main.cpp\
         mainwindow.cpp \
@@ -43,7 +43,8 @@ SOURCES += main.cpp\
     menupanel.cpp \
     aboutsoft.cpp \
     screenshots.cpp \
-    panelview.cpp
+    panelview.cpp \
+    application.cpp \
 
 HEADERS  += mainwindow.h \
     browserwindow.h \
@@ -64,7 +65,8 @@ HEADERS  += mainwindow.h \
     menupanel.h \
     aboutsoft.h \
     screenshots.h \
-    panelview.h
+    panelview.h \
+    application.h \
 
 RESOURCES += \
     res.qrc
