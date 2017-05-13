@@ -558,6 +558,7 @@ void ConfigWindow::genSecurity()
 
     QToolButton *btnEditPass = new QToolButton;
     btnEditPass->setText(tr("Use a new password"));
+    btnEditPass->setEnabled(false);
     connect(btnEditPass,SIGNAL(clicked(bool)),this,SLOT(choosePassword()));
 
     QWidget *spacer1 = new QWidget;
