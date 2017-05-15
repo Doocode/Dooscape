@@ -1,11 +1,12 @@
 *.Debug
 *.Release
+*.user
 *.log
 *.exe
 *.obj
 *.dll
+*.qm
 moc_*
-release/Makefile
 release/*.res
 release/*.cpp
 release/bearer
@@ -16,5 +17,3 @@ release/resources
 release/translations
 *.stash
 Makefile
-src/Dooscape.pro.user
-*.qm

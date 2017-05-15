@@ -1,15 +1,15 @@
-#ifndef INTROSTARTER_H
-#define INTROSTARTER_H
+#ifndef INTRODUCER_H
+#define INTRODUCER_H
 
 #include <QtWidgets>
 #include <QDesktopServices>
 #include "uix.h"
 
-class IntroScreen : public QFrame
+class IntroducerFrame : public QFrame
 {
     Q_OBJECT
     public:
-        explicit IntroScreen(QString title = 0, QWidget *parent = 0);
+        explicit IntroducerFrame(QString title = tr("Title"), QString text = tr("Text"), QWidget *parent = 0);
 
     signals:
         void goBackRequest();
@@ -19,31 +19,29 @@ class IntroScreen : public QFrame
         void setBoxLayout(QLayout *layout);
 
     private:
-        QVBoxLayout *mainLayout;
-        QLabel *lblTitle;
-        QFrame *central;
+        QFrame *mContainer;
 
 };
 
-class IntroStarter : public QFrame
+class Introducer : public QFrame
 {
     Q_OBJECT
     public:
-        explicit IntroStarter(QWidget *parent = 0);
-        ~IntroStarter();
+        explicit Introducer(QWidget *parent = 0);
 
     signals:
-        void showBrowser();
+        void startBrowsing();
         void showConfig();
         void showLoader();
 
     private slots:
-        void genIntro();
-        void genAccount();
-        void genCustomize();
-        void genFinish();
+        IntroducerFrame *genIntroducerFrame(QString title, QString text, QLayout *layout = 0);
+        IntroducerFrame *genIntro();
+        IntroducerFrame *genAccount();
+        IntroducerFrame *genCustomize();
+        IntroducerFrame *genFinish();
+        QToolBar *genToolbar();
 
-        void genToolbar();
         void setColor(QString color);
         void setValue(QString key, QVariant value);
 
@@ -55,23 +53,14 @@ class IntroStarter : public QFrame
 
     private:
         QStackedWidget *stack;
-        QToolBar *mainToolBar;
         QAction *actBack;
         QAction *actForward;
 
-        IntroScreen *scrIntro;
-        IntroScreen *scrAccount;
-        IntroScreen *scrCustomize;
-        IntroScreen *scrFinish;
-
         QLineEdit *editPseudo;
-        QLineEdit *editPass1;
-        QLineEdit *editPass2;
-        QLineEdit *editIndice;
 
         PreviewBox *editColor;
         PreviewBox *editBgImg;
         PreviewBox *editProfile;
 };
 
-#endif // INTROSTARTER_H
+#endif // INTRODUCER_H

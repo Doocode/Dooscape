@@ -36,7 +36,6 @@ SOURCES += main.cpp\
     lockscreen.cpp \
     fieldeditor.cpp \
     readinglist.cpp \
-    introstarter.cpp \
     historypanel.cpp \
     bookmarkspanel.cpp \
     downloadspanel.cpp \
@@ -45,6 +44,7 @@ SOURCES += main.cpp\
     screenshots.cpp \
     panelview.cpp \
     application.cpp \
+    introducer.cpp
 
 HEADERS  += mainwindow.h \
     browserwindow.h \
@@ -58,7 +58,6 @@ HEADERS  += mainwindow.h \
     lockscreen.h \
     fieldeditor.h \
     readinglist.h \
-    introstarter.h \
     historypanel.h \
     bookmarkspanel.h \
     downloadspanel.h \
@@ -67,6 +66,7 @@ HEADERS  += mainwindow.h \
     screenshots.h \
     panelview.h \
     application.h \
+    introducer.h
 
 RESOURCES += \
     res.qrc

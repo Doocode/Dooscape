@@ -1,7 +1,7 @@
 #include "application.h"
 
 #define APP_NAME    tr("Dooscape") // Name of the application
-#define APP_VERSION tr("2.0i") // Version of the application
+#define APP_VERSION tr("2.0j") // Version of the application
 #define ORG_NAME    tr("Doocode") // Name of the organization
 #define ORG_DOMAIN  tr("http://doo.zz.vc/") // The domain of the organization
 

@@ -3,7 +3,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    IntroStarter *starter = new IntroStarter;
+    Introducer *starter = new Introducer;
     browser = new BrowserWindow;
     config = new ConfigWindow;
     skin = new SkinManager;
@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(starter,SIGNAL(showLoader()),this,SLOT(showLoader()));
 
-    connect(starter,SIGNAL(showBrowser()),this,SLOT(loadSettings()));
+    connect(starter,SIGNAL(startBrowsing()),this,SLOT(loadSettings()));
     connect(config,SIGNAL(showBrowser()),browser,SLOT(loadConfig()));
     connect(config,SIGNAL(showBrowser()),browser,SLOT(updateAll()));
     connect(config,SIGNAL(showBrowser()),skin,SLOT(loadConfig()));

@@ -3,7 +3,7 @@
 
 #include "browserwindow.h"
 #include "configwindow.h"
-#include "introstarter.h"
+#include "introducer.h"
 #include "lockscreen.h"
 #include "skinmanager.h"
 
