@@ -2,44 +2,41 @@
 
 Introducer::Introducer(QWidget *parent) : QFrame(parent)
 {
-    stack = new QStackedWidget;
-    stack->addWidget(genIntro());
-    stack->addWidget(genAccount());
-    stack->addWidget(genCustomize());
-    stack->addWidget(genFinish());
-   /* stack->setMaximumWidth(1000);
-    stack->setMinimumWidth(500);*/
+    mStacker = new QStackedWidget;
+    mStacker->addWidget(genIntro());
+    mStacker->addWidget(genAccount());
+    mStacker->addWidget(genCustomize());
+    mStacker->addWidget(genFinish());
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
-    mainLayout->addWidget(stack);
-    mainLayout->setAlignment(stack,Qt::AlignCenter);
+    mainLayout->addWidget(mStacker);
+    mainLayout->setAlignment(mStacker,Qt::AlignCenter);
     mainLayout->addWidget(genToolbar());
     setLayout(mainLayout);
 
     setColor("rgb(0,100,200)");
-    //setMinimumSize(QSize(700,500));
 }
 
 QToolBar *Introducer::genToolbar()
 {
-    actBack = new QAction(QIcon(":/img/white/back.png"),tr("Back"),this);
-    actBack->setVisible(false);
-    connect(actBack,SIGNAL(triggered()),this,SLOT(execNavig()));
+    mActBack = new QAction(QIcon(":/img/white/back.png"),tr("Back"),this);
+    mActBack->setVisible(false);
+    connect(mActBack,SIGNAL(triggered()),this,SLOT(execNavig()));
 
     QWidget *spacer = new QWidget;
     spacer->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Ignored);
 
-    actForward = new QAction(QIcon(":/img/white/forward.png"),tr("Continue"),this);
-    connect(actForward,SIGNAL(triggered()),this,SLOT(execNavig()));
+    mActForward = new QAction(QIcon(":/img/white/forward.png"),tr("Continue"),this);
+    connect(mActForward,SIGNAL(triggered()),this,SLOT(execNavig()));
 
     QToolBar *toolBar = new QToolBar;
     toolBar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     toolBar->setIconSize(QSize(16,16));
     toolBar->addWidget(spacer);
-    toolBar->addAction(actBack);
-    toolBar->addAction(actForward);
+    toolBar->addAction(mActBack);
+    toolBar->addAction(mActForward);
     return toolBar;
 }
 
@@ -68,12 +65,12 @@ IntroducerFrame *Introducer::genIntro()
 IntroducerFrame *Introducer::genAccount()
 {
     QLabel *lblPseudo = new QLabel(tr("<b>Pseudo</b>"));
-    editPseudo = new QLineEdit;
-    editPseudo->setText(QDir::home().dirName());
+    mEditPseudo = new QLineEdit;
+    mEditPseudo->setText(QDir::home().dirName());
 
     QGridLayout *layout = new QGridLayout;
     layout->addWidget(lblPseudo,0,0);
-    layout->addWidget(editPseudo,0,1);
+    layout->addWidget(mEditPseudo,0,1);
 
     return genIntroducerFrame(
                 tr("Account"),
@@ -85,27 +82,27 @@ IntroducerFrame *Introducer::genAccount()
 IntroducerFrame *Introducer::genCustomize()
 {
     QLabel *lblColor = new QLabel(tr("<b>Main color</b>"));
-    editColor = new PreviewBox;
-    editColor->setColor("rgb(0,120,200)");
-    connect(editColor,SIGNAL(editRequested()),this,SLOT(chooseColor()));
+    mEditColor = new PreviewBox;
+    mEditColor->setColor("rgb(0,120,200)");
+    connect(mEditColor,SIGNAL(editRequested()),this,SLOT(chooseColor()));
 
     QLabel *lblBgImg = new QLabel(tr("<b>Background image</b>"));
-    editBgImg = new PreviewBox;
-    editBgImg->setBgImage(":/img/background.png");
-    connect(editBgImg,SIGNAL(editRequested()),this,SLOT(chooseBgImage()));
+    mEditBgImg = new PreviewBox;
+    mEditBgImg->setBgImage(":/img/background.png");
+    connect(mEditBgImg,SIGNAL(editRequested()),this,SLOT(chooseBgImage()));
 
     QLabel *lblProfile = new QLabel(tr("<b>Profile photo</b>"));
-    editProfile = new PreviewBox;
-    editProfile->setBgImage(":/img/user.png");
-    connect(editProfile,SIGNAL(editRequested()),this,SLOT(chooseBgImage()));
+    mEditProfile = new PreviewBox;
+    mEditProfile->setBgImage(":/img/user.png");
+    connect(mEditProfile,SIGNAL(editRequested()),this,SLOT(chooseBgImage()));
 
     QGridLayout *layout = new QGridLayout;
     layout->addWidget(lblColor,0,0);
-    layout->addWidget(editColor,1,0);
+    layout->addWidget(mEditColor,1,0);
     layout->addWidget(lblBgImg,0,1);
-    layout->addWidget(editBgImg,1,1);
+    layout->addWidget(mEditBgImg,1,1);
     layout->addWidget(lblProfile,0,2);
-    layout->addWidget(editProfile,1,2);
+    layout->addWidget(mEditProfile,1,2);
 
     return genIntroducerFrame(
                 tr("Customize"),
@@ -118,7 +115,7 @@ IntroducerFrame *Introducer::genFinish()
 {
     QPushButton *btnEdit = new QPushButton(tr("Edit settings"));
     connect(btnEdit,SIGNAL(clicked()),this,SLOT(saveSettings()));
-    connect(btnEdit,SIGNAL(clicked()),this,SIGNAL(showConfig()));
+    connect(btnEdit,SIGNAL(clicked()),this,SIGNAL(startConfig()));
 
     QGridLayout *layout = new QGridLayout;
     layout->addWidget(btnEdit,0,0);
@@ -133,43 +130,42 @@ IntroducerFrame *Introducer::genFinish()
 
 void Introducer::execNavig()
 {
-    int index = stack->currentIndex();
-    if(sender()==actBack)
+    int index = mStacker->currentIndex();
+    if(sender()==mActBack)
     {
         if(index==1)
         {
-            actBack->setVisible(false);
-            stack->setCurrentIndex(0);
+            mActBack->setVisible(false);
+            mStacker->setCurrentIndex(0);
         }
         else if(index>1)
         {
-            actBack->setVisible(true);
-            stack->setCurrentIndex(index-1);
+            mActBack->setVisible(true);
+            mStacker->setCurrentIndex(index-1);
         }
     }
-    else if(sender()==actForward)
+    else if(sender()==mActForward)
     {
-        if(index==stack->count()-1)
+        if(index==mStacker->count()-1)
         {
-            emit showLoader();
             saveSettings();
-            emit startBrowsing();
+            emit startBrowser();
         }
-        else if(index<stack->count())
+        else if(index<mStacker->count())
         {
-            actBack->setVisible(true);
-            stack->setCurrentIndex(index+1);
+            mActBack->setVisible(true);
+            mStacker->setCurrentIndex(index+1);
         }
     }
 }
 
 void Introducer::chooseColor()
 {
-    QColor choosedColor = QColorDialog::getColor(editColor->color);
+    QColor choosedColor = QColorDialog::getColor(mEditColor->color);
     if(choosedColor.name()=="#000000")
         return;
 
-    editColor->setColor(choosedColor.name());
+    mEditColor->setColor(choosedColor.name());
 }
 
 void Introducer::chooseBgImage()
@@ -178,10 +174,10 @@ void Introducer::chooseBgImage()
     if(path.isEmpty())
         return;
 
-    if(sender()==editBgImg)
-        editBgImg->setBgImage(path);
-    else if(sender()==editProfile)
-        editProfile->setBgImage(path);
+    if(sender()==mEditBgImg)
+        mEditBgImg->setBgImage(path);
+    else if(sender()==mEditProfile)
+        mEditProfile->setBgImage(path);
 }
 
 void Introducer::setValue(QString key, QVariant value)
@@ -198,8 +194,8 @@ void Introducer::saveSettings()
     settings->setValue("Version",QCoreApplication::applicationVersion());
     setValue("LastSession/ProperlyClosed",true);
 
-    setValue("Interface/Color",editColor->color);
-    setValue("Interface/BgImgUrl",editBgImg->bgImage);
+    setValue("Interface/Color",mEditColor->color);
+    setValue("Interface/BgImgUrl",mEditBgImg->bgImage);
 
     setValue("Navigation/Startup/Empty",false);
     setValue("Navigation/Startup/Home",true);
@@ -250,8 +246,8 @@ void Introducer::saveSettings()
     setValue("Interface/Tabbar/Closable",true);
     setValue("Interface/Tabbar/Movable",false);
 
-    setValue("Account/Photo",editProfile->bgImage);
-    setValue("Account/Pseudo",editPseudo->text());
+    setValue("Account/Photo",mEditProfile->bgImage);
+    setValue("Account/Pseudo",mEditPseudo->text());
     setValue("Account/Password","");
     setValue("Account/Indice","");
 

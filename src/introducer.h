@@ -30,9 +30,8 @@ class Introducer : public QFrame
         explicit Introducer(QWidget *parent = 0);
 
     signals:
-        void startBrowsing();
-        void showConfig();
-        void showLoader();
+        void startBrowser();
+        void startConfig();
 
     private slots:
         IntroducerFrame *genIntroducerFrame(QString title, QString text, QLayout *layout = 0);
@@ -52,15 +51,15 @@ class Introducer : public QFrame
         void saveSettings();
 
     private:
-        QStackedWidget *stack;
-        QAction *actBack;
-        QAction *actForward;
+        QStackedWidget *mStacker;
+        QAction *mActBack;
+        QAction *mActForward;
 
-        QLineEdit *editPseudo;
+        QLineEdit *mEditPseudo;
 
-        PreviewBox *editColor;
-        PreviewBox *editBgImg;
-        PreviewBox *editProfile;
+        PreviewBox *mEditColor;
+        PreviewBox *mEditBgImg;
+        PreviewBox *mEditProfile;
 };
 
 #endif // INTRODUCER_H

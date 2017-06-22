@@ -19,28 +19,30 @@ class MainWindow : public QMainWindow
         void closeEvent(QCloseEvent *event);
 
     private slots:
+        void showLockScreen();
         void showSkinManager();
-        void showBrowser();
-        void showConfig();
-        void showLocker();
-        void showLoader();
-        void showScreenshot();
-        void loadSettings();
-        void fullScreen();
-        void startConfig();
-        bool isAuthenticated();
-        QFrame *genLoaderScreen();
+        void showConfigWindow();
+        void showBrowserWindow();
+        void showScreenshotViewer();
 
+        void loadSettings();
+        void toggleFullScreen();
         void updateTitleBar(QString title);
 
+        bool isAuthenticated();
+
+        void startBrowser();
+        void startConfig();
+
     private:
-        QStackedWidget *central;
-        SkinManager *skin;
-        BrowserWindow *browser;
-        ConfigWindow *config;
-        LockScreen *locker;
-        ScreenshotsViewer *screen;
-        QSettings *settings;
+        ScreenshotsViewer *mScreenshotViewer;
+        BrowserWindow *mBrowserWindow;
+        ConfigWindow *mConfigWindow;
+        SkinManager *mSkinManager;
+        LockScreen *mLockScreen;
+
+        QSettings *mSettings;
+        QStackedWidget *mStacker;
 };
 
 #endif // MAINWINDOW_H
